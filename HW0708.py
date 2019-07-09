@@ -5,13 +5,6 @@ def a(leng):
     for i in range(len(A)):
         A[i] = int(input())
     return A
-#B method
-def b(leng):
-    B = [0] * leng
-    print("Input B array: ")
-    for i in range(len(B)):
-        B[i] = int(input())
-    return B
 
 def sum_lists(a,b,leng):
     C = [0] * leng
@@ -23,16 +16,17 @@ def sum_lists(a,b,leng):
     print(" ")
     return C
 #D method
-def d(C, leng):
+def d(C, leng, x):
     D = [0] * leng
     for i in range(len(D)):
-        D[i] = C[i] * 10
+        D[i] = C[i] * x
         print(D[i], end= " ")
     return D
 
 # Main of the program
 leng = int(input('Enter your list range: '))
 a = a(leng)
-b = b(leng)
+b = a(leng)
 c = sum_lists(a, b, leng)
-d(c, leng)
+d(c, leng, 10)
+
