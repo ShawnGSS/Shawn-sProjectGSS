@@ -12,17 +12,6 @@ public class HW0708 {
         }
         return A;
     }
-
-    //B method
-    public static int [] B(int len ) {
-        Scanner input = new Scanner(System.in);
-        int [] B = new int[len];
-        System.out.print("Input B array: ");
-        for (int i = 0; i < B.length; i++) {
-            B[i] = input.nextInt();
-        }
-        return B;
-    }
     //C method
     public static int [] sum_lists(int [] A,int [] B,int len) {
         Scanner input = new Scanner(System.in);
@@ -37,11 +26,11 @@ public class HW0708 {
         return C;
     }
     //D method
-    public static int [] D(int [] C, int len ) {
+    public static int [] D(int [] C, int len, int x) {
         Scanner input = new Scanner(System.in);
         int [] D = new int[len];
         for (int i = 0; i < D.length; i++) {
-            D[i] = C[i] * 10;
+            D[i] = C[i] * x;
             System.out.print(D[i]+" ");
         }
         return D;
@@ -52,8 +41,9 @@ public class HW0708 {
         System.out.print("Input array length: ");
         int len = input.nextInt();
         int [] A = HW0708.A(len);
-        int [] B = HW0708.B(len);
+        int [] B = HW0708.A(len);
         int [] C = HW0708.sum_lists(A,B,len);
-        int [] D = HW0708.D(C,len);
+        int [] D = HW0708.D(C,len,10);
     }
 }
+
