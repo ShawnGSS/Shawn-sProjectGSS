@@ -15,11 +15,9 @@ public class Vehicles{
     }
     public static void main(String []args) {
         Vehicles Auto1 = new Vehicles();
-        /* Call class method to set puppy's age */
         Auto1.setBrand("Audi");
         Auto1.setColour("Black");
         Auto1.setDoor("2");
-        /* Call another class method to get puppy's age */
         Auto1.getBrand();
         Auto1.getColour();
         Auto1.getDoor();
