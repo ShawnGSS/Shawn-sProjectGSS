@@ -12,5 +12,6 @@ public class Squaremachine {
         double si = input.nextDouble();
         side1.setSide(si);
         System.out.print(side1.Area());
+        
     }
 }
