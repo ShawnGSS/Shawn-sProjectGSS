@@ -21,11 +21,16 @@ def U(user):
             PlayerDic[Jersey] = input("Enter new rank number: ")
         else:
             print("Player doesnt exist")
-#def R(user):
-   # if user == 'r':
-       # Rank = int(input("Enter jersey number: "))
-       # if Rank in PlayerDic:
-    # Dont actually know how to do R
+def R(user):
+    if user == 'r':
+        i = int(input("Enter jersey number: "))
+        filtered ={}
+        for k in PlayerDic:
+            if PlayerDic[k] > i:
+                filtered[k] = PlayerDic[k]
+    for key in sorted(filtered.keys()):
+        print("Rank filtered: jersey number %s has a rank of %s" % (key,filtered[key]))
+
 
 def O(user):
     if user == 'o':
@@ -50,9 +55,20 @@ while user != 'q':
     enter your option: 
     """)
     user = input()
-    print(A(user),D(user),U(user),O(user))
+    print(A(user),D(user),U(user),O(user),R(user))
 
 print("End of Program.")
+
+
+
+
+
+
+
+
+
+
+
 
 
 
