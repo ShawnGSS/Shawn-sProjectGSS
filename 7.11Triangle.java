@@ -14,11 +14,7 @@ public class Triangle {
         this.side3 = side3;
     }
     public boolean confirm(int side1,int side2,int side3) {
-        if (side1 + side2 > side3) {
-            return true;
-        } else if (side1 + side3 > side2) {
-            return true;
-        } else if (side2 + side3 > side1) {
+        if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
             return true;
         } else {
             return false;
@@ -30,7 +26,7 @@ public class Triangle {
     }
     //Still have to fix compare
    // public boolean compare(Object o) {
-    //    if (this.side1 == this.) {
+    //    if (this.side1 == ) {
     //    return true;
     //    }
     //    else {
@@ -53,4 +49,5 @@ public class Triangle {
 
     }
 }
+
 
