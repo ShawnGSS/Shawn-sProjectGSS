@@ -24,7 +24,7 @@ def U(user):
 def R(user):
     if user == 'r':
         i = int(input("Enter jersey number: "))
-        filtered ={}
+        
         for k in PlayerDic:
             if PlayerDic[k] > i:
                 filtered[k] = PlayerDic[k]
@@ -37,6 +37,7 @@ def O(user):
         for key in sorted(PlayerDic.keys()):
             print("Player with the jersey number %s has a rank of %s" % (key, PlayerDic[key]))
 PlayerDic = {}
+filtered ={}
 user = " "
 for i in range(5):
     Jersey = int(input("Enter jersey number: "))
@@ -45,6 +46,7 @@ for i in range(5):
         print("Invalid number")
     else:
         PlayerDic[Jersey] = Rank
+        
 while user != 'q':
     print("""    a - Add player
     d - Remove player
