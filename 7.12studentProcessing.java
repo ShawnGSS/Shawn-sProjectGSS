@@ -20,6 +20,17 @@ public class studentProcessing {
             allGPA[i] = students.get(i).find_GPA(students.get(i).grades);
             students.get(i).print_student();
         }
+        //still have to fix this
+        /*for (int i = 0; i < students.size(); ++i) {
+            if(students.get(i).CompareStudents(students.get(i+1)) == 1){
+                students.get(i).print_student();
+            }else if(students.get(i).CompareStudents(students.get(i+1)) == -1){
+                students.get(i + 1).print_student();
+            }else{
+                students.get(i + 1).print_student();
+            }
+        }*/
+
 // the following are methods in the file studentProcessing instead of Student, I wasn't sure as it war not specified in the question
 // this one's not a method , i dont know its name
         double temp = 0;
@@ -39,6 +50,7 @@ public class studentProcessing {
                 students.get(i).print_student();
             }
         }
+
     }
         public static double class_GPA(double [] Array){
             double sum = 0;
@@ -54,3 +66,4 @@ public class studentProcessing {
 
 
 }
+
