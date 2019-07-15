@@ -1,13 +1,4 @@
 class Triangle:
-    def side1(self):
-        self.side1
-
-    def side2(self):
-        self.side2
-
-    def side3(self):
-        self.side3
-
     def __init__(self):
         self.side1 = 0
         self.side2 = 0
