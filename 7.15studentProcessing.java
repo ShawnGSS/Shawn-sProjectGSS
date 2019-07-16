@@ -20,7 +20,7 @@ public class studentProcessing {
             allGPA[i] = students.get(i).find_GPA(students.get(i).grades);
             students.get(i).print_student();
         }
-        //still have to fix this
+        //I need help to print the students in order of graduation date
         /*for (int i = 0; i < students.size(); ++i) {
             if(students.get(i).CompareStudents(students.get(i+1)) == 1){
                 students.get(i).print_student();
@@ -44,8 +44,9 @@ public class studentProcessing {
         }
 
         System.out.println("Best GPA in class is: " + allGPA[allGPA.length - 1] + " and i really don't know how to find the corresponding student ");
+        System.out.println("The following are students with a GPA below average.");
         for (int i = 0; i < students.size(); ++i) {
-            System.out.println("The following are students with a GPA below average.");
+           
             if (students.get(i).getGPA() < class_GPA(allGPA)) {
                 students.get(i).print_student();
             }
