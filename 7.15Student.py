@@ -11,13 +11,7 @@ class Student:
 
     #find_GPA method
     def find_GPA(self):
-        sum = 0;
-
-        for i in range(len(self.Grades)):
-            sum = sum + self.Grades[i]
-
-        self.GPA = sum/len(self.Grades)
-
+        self.GPA = sum(self.Grades)/len(self.Grades)
     #Read from keyboard method
     def readFromKeyboard(self):
         self.name = input("Name: ")
