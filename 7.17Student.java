@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class Student {
     private double GPA;
     private String name;
@@ -29,7 +30,7 @@ public class Student {
         return GPA;
     }
     //Read from keyboard method
-    public void readFromKeyboard(){
+    /*public void readFromKeyboard(){
         int x;
         System.out.println("Enter name: ");
         this.name = scnr.next();
@@ -58,7 +59,7 @@ public class Student {
             x = scnr.nextInt();
             this.grades.set(i,x);
         }
-    }
+    } */
     //print student method
     public void print_student(){
         System.out.println("Student name: "+ this.name);
@@ -80,11 +81,12 @@ public class Student {
 
     }
 
-
 //setter and getter
+    int e = 0;
     public void setGPA(double GPA) {this.GPA = GPA;}
     public void setAge(int age) {this.age = age;}
     public void setName(String name) {this.name = name;}
+    public void setGrades(ArrayList grades) {this.grades = grades;}
     public void setGraduationDay(int GraduationDay) {this.GraduationDay = GraduationDay;}
     public void setGraduationMonth(int GraduationMonth) {this.GraduationMonth = GraduationMonth;}
     public void setGraduationYear(int GraduationYear) {this.GraduationYear = GraduationYear;}
@@ -97,5 +99,7 @@ public class Student {
     public int getGraduationMonth() { return GraduationMonth; }
     public int getGraduationYear() { return GraduationYear; }
     public int getGraduationSum() { return GraduationSum; }
+    public ArrayList getGrades() {return grades; }
 }
+
 
