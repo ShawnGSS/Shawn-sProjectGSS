@@ -20,8 +20,7 @@ public class studentProcessing {
             allGPA[i] = students.get(i).find_GPA(students.get(i).grades);
             students.get(i).print_student();
         }
-        //I need help to print the students in order of graduation date
-        /*for (int i = 0; i < students.size(); ++i) {
+       /* for (int i = 0; i < students.size(); ++i) {
             if(students.get(i).CompareStudents(students.get(i+1)) == 1){
                 students.get(i).print_student();
             }else if(students.get(i).CompareStudents(students.get(i+1)) == -1){
@@ -30,9 +29,6 @@ public class studentProcessing {
                 students.get(i + 1).print_student();
             }
         }*/
-
-// the following are methods in the file studentProcessing instead of Student, I wasn't sure as it war not specified in the question
-// this one's not a method , i dont know its name
         double temp = 0;
         for (int i = 0; i < allGPA.length - 1; i++) {
             if (allGPA[i] > allGPA[i + 1]) {
@@ -42,11 +38,21 @@ public class studentProcessing {
                 i = 0;
             }
         }
+        Student tem;
+        for (int i = 0; i < students.size() - 1; i++) {
+            if (students.get(i).getGPA() > students.get(i + 1).getGPA()) {
+                tem = students.get(i);
+                students.set(i, students.get(i + 1));
+                students.set(i+1,tem);
+                i = 0;
+            }
+        }
 
-        System.out.println("Best GPA in class is: " + allGPA[allGPA.length - 1] + " and i really don't know how to find the corresponding student ");
+        System.out.println("Best GPA in class is: ");
+        students.get(students.size()-1).print_student();
         System.out.println("The following are students with a GPA below average.");
         for (int i = 0; i < students.size(); ++i) {
-           
+
             if (students.get(i).getGPA() < class_GPA(allGPA)) {
                 students.get(i).print_student();
             }
@@ -61,10 +67,4 @@ public class studentProcessing {
             double avgGPA = sum/Array.length;
             return avgGPA;
         }
-
-
-
-
-
 }
-
