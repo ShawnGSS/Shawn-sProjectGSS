@@ -1,25 +1,47 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Collections;
 public class studentProcessing {
-    public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        //Student list
         ArrayList<Student> students = new ArrayList<Student>();
-        Student stu1 = new Student();
-        Student stu2 = new Student();
-        Student stu3 = new Student();
-        students.add(stu1);
-        students.add(stu2);
-        students.add(stu3);
-        //
+
         double[] allGPA = new double[students.size()];
+        int amount;
+
+        //The input file system
+        FileInputStream fileByteStream = null;
+        Scanner inFS = null;
+
+
+        //Reading the file
+        fileByteStream = new FileInputStream("student_file.txt");
+        inFS = new Scanner(fileByteStream);
+
+        //How may Students there are , user defined
+        amount = inFS.nextInt();
+
         //does everything: Get info , Find GPA, add GPA to list, Print info
-        for (int i = 0; i < students.size(); ++i) {
-            students.get(i).readFromKeyboard();
+        for (int i = 0; i < amount; ++i) {
+            Student Stu = new Student();
+            students.add(Stu);
+            Stu.setName(inFS.next());
+            Stu.setAge(inFS.nextInt());
+            int length = inFS.nextInt();
+            for (int x = 0; x < length; ++x) {
+                Stu.grades.set(x,inFS.nextInt());
+            }
+            Stu.setGraduationDay(inFS.nextInt());
+            Stu.setGraduationMonth(inFS.nextInt());
+            Stu.setGraduationYear(inFS.nextInt());
+
             students.get(i).find_GPA(students.get(i).grades);
             allGPA[i] = students.get(i).find_GPA(students.get(i).grades);
             students.get(i).print_student();
         }
+        fileByteStream.close();
        /* for (int i = 0; i < students.size(); ++i) {
             if(students.get(i).CompareStudents(students.get(i+1)) == 1){
                 students.get(i).print_student();
@@ -29,6 +51,9 @@ public class studentProcessing {
                 students.get(i + 1).print_student();
             }
         }*/
+
+// the following are methods in the file studentProcessing instead of Student, I wasn't sure as it war not specified in the question
+// this one's not a method , i dont know its name
         double temp = 0;
         for (int i = 0; i < allGPA.length - 1; i++) {
             if (allGPA[i] > allGPA[i + 1]) {
@@ -52,7 +77,6 @@ public class studentProcessing {
         students.get(students.size()-1).print_student();
         System.out.println("The following are students with a GPA below average.");
         for (int i = 0; i < students.size(); ++i) {
-
             if (students.get(i).getGPA() < class_GPA(allGPA)) {
                 students.get(i).print_student();
             }
@@ -67,4 +91,6 @@ public class studentProcessing {
             double avgGPA = sum/Array.length;
             return avgGPA;
         }
+
 }
+
