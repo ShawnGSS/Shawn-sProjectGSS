@@ -2,6 +2,8 @@ class Student:
     def __init__(self):
         self.GPA = 0.0
         self.name = "none"
+        self.last_name = "none"
+        self.ID = 0
         self.age = 0
         self.GraduationDay = 0
         self.GraduationMonth = 0
@@ -13,7 +15,7 @@ class Student:
     def __gt__(self, other):
         return self.GPA > other.GPA
     def __eq__(self,other):
-        return self.name == other.name
+        return self.name == other.name and self.last_name == other.last_name and self.ID == other.ID
 #find_GPA method
     def find_GPA(self):
         self.GPA = sum(self.Grades)/len(self.Grades)
@@ -21,7 +23,9 @@ class Student:
     #Read from keyboard method
     def readFromKeyboard(self):
         self.name = input("Name: ")
+        self.last_name = input("last name: ")
         self.age = int(input("Age; "))
+        self.ID = int(input("ID: "))
         self.GraduationDay = int(input("Day of Graduation: "))
         if self.GraduationDay > 31:
             print("invalid date")
@@ -36,8 +40,9 @@ class Student:
             self.Grades.append(int(input("Enter grades; ")))
 
     def print_all_student(self):
-        print("Student name: " + self.name)
+        print("Student name: %s %s " % (self.name,self.last_name))
         print("Student age: ", self.age)
+        print("Student ID; " , self.ID)
         print("Student grades: ", self.Grades)
         print("Student GPA: ", self.GPA)
         print("Student graduated on (EU date format) %s / %s / %s " % (self.GraduationDay, self.GraduationMonth, self.GraduationYear))
@@ -45,7 +50,7 @@ class Student:
 
 def getallstudent():
     studentlist = []
-    for i in range(3): # 3 could be a user defined number but that wasnt in the homework discription so i created 3
+    for i in range(3):  # 3 could be a user defined number but that wasnt in the homework discription so i created 3
         Stu = Student()
         Stu.readFromKeyboard()
         Stu.find_GPA()
