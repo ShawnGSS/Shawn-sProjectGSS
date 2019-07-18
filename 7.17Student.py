@@ -10,16 +10,20 @@ class Student:
         self.GraduationYear = 0
         self.GraduationSum = 0
         self.Grades = []
+        
     def __lt__(self,other):
-        return self.GPA < other.GPA
+        if self.GPA < other.GPA:
+            return True
+        return False
     def __gt__(self, other):
-        return self.GPA > other.GPA
+        if self.GPA > other.GPA:
+            return True
+        return False
     def __eq__(self,other):
-        return self.name == other.name and self.last_name == other.last_name and self.ID == other.ID
-#find_GPA method
-    def find_GPA(self):
-        self.GPA = sum(self.Grades)/len(self.Grades)
-
+        if self.name == other.name and self.last_name == other.last_name and self.ID == other.ID:
+            return True
+        return False
+    
     #Read from keyboard method
     def readFromKeyboard(self):
         self.name = input("Name: ")
