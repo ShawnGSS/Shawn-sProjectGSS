@@ -56,7 +56,7 @@ class Student:
 
 def getallstudent():
     studentlist = []
-    for i in range(3):  # 3 could be a user defined number but that wasnt in the homework discription so i created 3
+    for i in range(3):  # 3 could be a user defined number but that wasnt in the homework description so i created 3
         Stu = Student()
         Stu.readFromKeyboard()
         Stu.find_GPA()
