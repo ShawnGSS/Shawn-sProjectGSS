@@ -1,6 +1,7 @@
-import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
 public class Student {
     private double GPA;
     private String name;
@@ -10,8 +11,6 @@ public class Student {
     private int GraduationYear;
     private int GraduationSum;
 
-
-    Scanner scnr = new Scanner(System.in);
     ArrayList<Integer> grades = new ArrayList<Integer>();
     //constructor
     Student(){
@@ -61,12 +60,27 @@ public class Student {
         }
     } */
     //print student method
+
+
     public void print_student(){
         System.out.println("Student name: "+ this.name);
         System.out.println("Student age: "+ this.age);
         System.out.println("Student grades: "+ this.grades);
         System.out.println("Student GPA: "+ this.GPA);
         System.out.println(" ");
+    }
+    public void PrintStudentToFile()throws IOException{
+        FileOutputStream fileByteStream = null;
+        PrintWriter outFS = null;
+        outFS = new PrintWriter(fileByteStream);
+        fileByteStream = new FileOutputStream("C:\\Users\\123\\IdeaProjects\\GSS 7-3\\src\\student_file_printed.txt");
+        outFS.println("Student name: "+ this.name);
+        outFS.println("Student age: "+ this.age);
+        outFS.println("Student grades: "+ this.grades);
+        outFS.println("Student GPA: "+ this.GPA);
+        outFS.println(" ");
+        outFS.flush();
+        fileByteStream.close();
     }
     public int CompareStudents(Student o){
         this.GraduationSum = this.GraduationDay + this.GraduationMonth * 30 + this.GraduationYear * 365;
@@ -83,7 +97,6 @@ public class Student {
     }
 
 //setter and getter
-    int e = 0;
     public void setGPA(double GPA) {this.GPA = GPA;}
     public void setAge(int age) {this.age = age;}
     public void setName(String name) {this.name = name;}
