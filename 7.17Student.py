@@ -1,3 +1,4 @@
+import time
 class Student:
     def __init__(self):
         self.GPA = 0.0
@@ -28,22 +29,41 @@ class Student:
 
     #Read from keyboard method
     def readFromKeyboard(self):
-        self.name = input("Name: ")
-        self.last_name = input("last name: ")
-        self.age = int(input("Age; "))
-        self.ID = int(input("ID: "))
-        self.GraduationDay = int(input("Day of Graduation: "))
-        if self.GraduationDay > 31:
-            print("invalid date")
-        self.GraduationMonth = int(input("Month of Graduation: "))
-        if self.GraduationMonth > 12:
-            print("invald date")
-        self.GraduationYear = int(input("Year of Graduation: "))
-        if self.GraduationYear > 2019 or self.GraduationYear < 1800:
-            print("invald date")
-        length = int(input("How much grades would you like to input: "))
-        for i in range(length):
-            self.Grades.append(int(input("Enter grades; ")))
+        retry = "yes";
+        while retry == "yes":
+            try:
+                self.name = input("Name: ")
+                self.last_name = input("last name: ")
+                self.age = int(input("Age; "))
+                self.ID = int(input("ID: "))
+
+                self.GraduationDay = int(input("Day of Graduation: "))
+                if self.GraduationDay > 31:
+                    print("invalid date")
+                    continue
+                self.GraduationMonth = int(input("Month of Graduation: "))
+                if self.GraduationMonth > 12:
+                    print("invald date")
+                    continue
+                self.GraduationYear = int(input("Year of Graduation: "))
+                if self.GraduationYear > 2019 or self.GraduationYear < 1800:
+                    print("invald date")
+                    continue
+                length = int(input("How much grades would you like to input: "))
+                for i in range(length):
+                    self.Grades.append(int(input("Enter grades; ")))
+                retry = "no"
+            except:
+                print("False information ,Im gonna have to crash your system sorry , ")
+                time.sleep(2)
+                print("crashing...")
+                for i in range(3):
+                    time.sleep(0.56)
+                    print("....")
+                input("Just kidding, try again.\n")
+                retry = "yes"
+                # dont = eat = my = bratwurst
+
 
     def __str__(self):
         return("""Student name: %s %s 
@@ -56,13 +76,26 @@ class Student:
 
 def getallstudent():
     studentlist = []
-    for i in range(3):  # 3 could be a user defined number but that wasnt in the homework description so i created 3
-        Stu = Student()
-        Stu.readFromKeyboard()
-        Stu.find_GPA()
-        studentlist.append(Stu)
+    m = int(input("Enter how many students there are: "))
+
+    for i in range(m):
+        retry = "yes"
+        while retry == "yes":
+            Stu = Student()
+            Stu.readFromKeyboard()
+            Stu.find_GPA()
+            retry = "no"
+            flag = True
+            for x in studentlist:
+                if (x == Stu):
+                    print("Redundant Student information.")
+                    flag = False
+                    retry = "yes"
+            if (flag == True):
+                studentlist.append(Stu)
+                retry = "no"
     return studentlist
 
 Listt = getallstudent()
-for i in range(3):
+for i in range(len(Listt)):
     print(Listt[i])
