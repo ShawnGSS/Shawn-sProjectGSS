@@ -66,6 +66,7 @@ public class Student {
         System.out.println("Student age: "+ this.age);
         System.out.println("Student grades: "+ this.grades);
         System.out.println("Student GPA: "+ this.GPA);
+        System.out.println(" ");
     }
     public int CompareStudents(Student o){
         this.GraduationSum = this.GraduationDay + this.GraduationMonth * 30 + this.GraduationYear * 365;
@@ -101,5 +102,3 @@ public class Student {
     public int getGraduationSum() { return GraduationSum; }
     public ArrayList getGrades() {return grades; }
 }
-
-
