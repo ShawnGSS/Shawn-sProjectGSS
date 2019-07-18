@@ -10,7 +10,6 @@ class Student:
         self.GraduationYear = 0
         self.GraduationSum = 0
         self.Grades = []
-        
     def __lt__(self,other):
         if self.GPA < other.GPA:
             return True
@@ -23,7 +22,10 @@ class Student:
         if self.name == other.name and self.last_name == other.last_name and self.ID == other.ID:
             return True
         return False
-    
+#find_GPA method
+    def find_GPA(self):
+        self.GPA = sum(self.Grades)/len(self.Grades)
+
     #Read from keyboard method
     def readFromKeyboard(self):
         self.name = input("Name: ")
@@ -43,14 +45,14 @@ class Student:
         for i in range(length):
             self.Grades.append(int(input("Enter grades; ")))
 
-    def print_all_student(self):
-        print("Student name: %s %s " % (self.name,self.last_name))
-        print("Student age: ", self.age)
-        print("Student ID; " , self.ID)
-        print("Student grades: ", self.Grades)
-        print("Student GPA: ", self.GPA)
-        print("Student graduated on (EU date format) %s / %s / %s " % (self.GraduationDay, self.GraduationMonth, self.GraduationYear))
-        print(" ")
+    def __str__(self):
+        return("""Student name: %s %s 
+        Student age: %s
+        Student ID: %s
+        Student grades: %s
+        Student GPA: %s
+        Student graduated on (EU format) %s / %s / %s \n""" % (self.name,self.last_name,self.age,self.ID,self.Grades, self.GPA,self.GraduationDay, self.GraduationMonth, self.GraduationYear) )
+
 
 def getallstudent():
     studentlist = []
@@ -63,4 +65,4 @@ def getallstudent():
 
 Listt = getallstudent()
 for i in range(3):
-    Listt[i].print_all_student()
+    print(Listt[i])
