@@ -2,13 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Collections;
 public class studentProcessing {
     public static void main(String[] args) throws IOException {
         //Student list
         ArrayList<Student> students = new ArrayList<Student>();
 
-        double[] allGPA = new double[students.size()];
+
         int amount;
 
         //The input file system
@@ -17,11 +16,12 @@ public class studentProcessing {
 
 
         //Reading the file
-        fileByteStream = new FileInputStream("student_file.txt");
+        fileByteStream = new FileInputStream("C:\\Users\\123\\IdeaProjects\\GSS 7-3\\src\\student_file.txt");
         inFS = new Scanner(fileByteStream);
 
         //How may Students there are , user defined
         amount = inFS.nextInt();
+        double[] allGPA = new double[amount];
 
         //does everything: Get info , Find GPA, add GPA to list, Print info
         for (int i = 0; i < amount; ++i) {
@@ -31,7 +31,7 @@ public class studentProcessing {
             Stu.setAge(inFS.nextInt());
             int length = inFS.nextInt();
             for (int x = 0; x < length; ++x) {
-                Stu.grades.set(x,inFS.nextInt());
+                Stu.grades.add(x,inFS.nextInt());
             }
             Stu.setGraduationDay(inFS.nextInt());
             Stu.setGraduationMonth(inFS.nextInt());
@@ -54,15 +54,6 @@ public class studentProcessing {
 
 // the following are methods in the file studentProcessing instead of Student, I wasn't sure as it war not specified in the question
 // this one's not a method , i dont know its name
-        double temp = 0;
-        for (int i = 0; i < allGPA.length - 1; i++) {
-            if (allGPA[i] > allGPA[i + 1]) {
-                temp = allGPA[i];
-                allGPA[i] = allGPA[i + 1];
-                allGPA[i + 1] = temp;
-                i = 0;
-            }
-        }
         Student tem;
         for (int i = 0; i < students.size() - 1; i++) {
             if (students.get(i).getGPA() > students.get(i + 1).getGPA()) {
@@ -72,9 +63,10 @@ public class studentProcessing {
                 i = 0;
             }
         }
-
+        System.out.println("  ");
         System.out.println("Best GPA in class is: ");
         students.get(students.size()-1).print_student();
+        System.out.println("  ");
         System.out.println("The following are students with a GPA below average.");
         for (int i = 0; i < students.size(); ++i) {
             if (students.get(i).getGPA() < class_GPA(allGPA)) {
