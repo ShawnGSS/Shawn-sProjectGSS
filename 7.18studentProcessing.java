@@ -1,3 +1,5 @@
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileInputStream;
@@ -6,14 +8,11 @@ public class studentProcessing {
     public static void main(String[] args) throws IOException {
         //Student list
         ArrayList<Student> students = new ArrayList<Student>();
-
-
         int amount;
 
         //The input file system
         FileInputStream fileByteStream = null;
         Scanner inFS = null;
-
 
         //Reading the file
         fileByteStream = new FileInputStream("C:\\Users\\123\\IdeaProjects\\GSS 7-3\\src\\student_file.txt");
@@ -22,6 +21,11 @@ public class studentProcessing {
         //How may Students there are , user defined
         amount = inFS.nextInt();
         double[] allGPA = new double[amount];
+        FileOutputStream filebytestream = null;
+        PrintWriter outFS = null;
+        filebytestream = new FileOutputStream("C:\\Users\\123\\IdeaProjects\\GSS 7-3\\src\\student_file_printed.txt");
+
+        outFS = new PrintWriter(filebytestream);
 
         //does everything: Get info , Find GPA, add GPA to list, Print info
         for (int i = 0; i < amount; ++i) {
@@ -40,6 +44,7 @@ public class studentProcessing {
             students.get(i).find_GPA(students.get(i).grades);
             allGPA[i] = students.get(i).find_GPA(students.get(i).grades);
             students.get(i).print_student();
+            students.get(i).PrintStudentToFile(outFS);
         }
         fileByteStream.close();
        /* for (int i = 0; i < students.size(); ++i) {
@@ -63,14 +68,15 @@ public class studentProcessing {
                 i = 0;
             }
         }
-        System.out.println("  ");
-        System.out.println("Best GPA in class is: ");
+
+        outFS.println("  ");
+        outFS.println("Best GPA in class is: ");
         students.get(students.size()-1).print_student();
-        System.out.println("  ");
-        System.out.println("The following are students with a GPA below average.");
+        outFS.println("  ");
+        outFS.println("The following are students with a GPA below average.");
         for (int i = 0; i < students.size(); ++i) {
             if (students.get(i).getGPA() < class_GPA(allGPA)) {
-                students.get(i).print_student();
+                students.get(i).PrintStudentToFile(outFS);
             }
         }
 
@@ -85,4 +91,3 @@ public class studentProcessing {
         }
 
 }
-
