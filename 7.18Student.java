@@ -69,18 +69,13 @@ public class Student {
         System.out.println("Student GPA: "+ this.GPA);
         System.out.println(" ");
     }
-    public void PrintStudentToFile()throws IOException{
-        FileOutputStream fileByteStream = null;
-        PrintWriter outFS = null;
-        outFS = new PrintWriter(fileByteStream);
-        fileByteStream = new FileOutputStream("C:\\Users\\123\\IdeaProjects\\GSS 7-3\\src\\student_file_printed.txt");
+    public void PrintStudentToFile(PrintWriter outFS)throws IOException{
         outFS.println("Student name: "+ this.name);
         outFS.println("Student age: "+ this.age);
         outFS.println("Student grades: "+ this.grades);
         outFS.println("Student GPA: "+ this.GPA);
         outFS.println(" ");
         outFS.flush();
-        fileByteStream.close();
     }
     public int CompareStudents(Student o){
         this.GraduationSum = this.GraduationDay + this.GraduationMonth * 30 + this.GraduationYear * 365;
