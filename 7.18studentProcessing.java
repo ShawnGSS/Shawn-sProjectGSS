@@ -71,7 +71,7 @@ public class studentProcessing {
 
         outFS.println("  ");
         outFS.println("Best GPA in class is: ");
-        students.get(students.size()-1).print_student();
+        students.get(students.size()-1).PrintStudentToFile(outFS);
         outFS.println("  ");
         outFS.println("The following are students with a GPA below average.");
         for (int i = 0; i < students.size(); ++i) {
