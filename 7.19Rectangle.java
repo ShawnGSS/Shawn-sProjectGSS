@@ -8,11 +8,9 @@ public class Rectangle {
 
     //The toString method that's over written
     public String toString(int length, int width){
-        if(this.length == this.width || this.length<=0 ||this.width<=0 ){
-            System.out.print("this is not a rectangle");
-            return "error";
-        }
+        
             return "this is a rectangle, with a side length of; "+ length +" and a side width of: "+ width;
     }
 
 }
+
