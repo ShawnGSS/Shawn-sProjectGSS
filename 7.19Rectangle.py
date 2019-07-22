@@ -17,7 +17,7 @@ class Rectangle:
 
 
 def AP(length,width ):
-    peri = length + width *2
+    peri = (length + width)*2
     area = length * width
     tup = (peri,area)
     return tup
