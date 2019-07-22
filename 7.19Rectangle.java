@@ -1,10 +1,18 @@
-public class Square extends Rectangle{
+public class Rectangle {
+    private int length;
+    private int width;
+    public void setLength(int length) {this.length = length;}
+    public void setWidth(int width) {this.width = width;}
+    public int getLength() {return length; }
+    public int getWidth() {return width; }
 
-    //Square(int length){
-      //  super.getLength() = length;
-    //}
-
-    public String toString(int length){
-        return "this is a square, with a side length of; "+ length;
+    //The toString method that's over written
+    public String toString(int length, int width){
+        if(this.length == this.width || this.length<=0 ||this.width<=0 ){
+            System.out.print("this is not a rectangle");
+            return "error";
+        }
+            return "this is a rectangle, with a side length of; "+ length +" and a side width of: "+ width;
     }
+
 }
