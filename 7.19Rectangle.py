@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Rectangle:
     def __init__(self):
         self.length = 0
@@ -17,7 +14,7 @@ class Rectangle:
 
 
 def AP(length,width ):
-    peri = (length + width)*2
+    peri = (length + width) * 2
     area = length * width
     tup = (peri,area)
     return tup
@@ -44,9 +41,7 @@ def ans():
                     rec.width = w
                 flag = True
             except ValueError:
-                print("No negative number, or zero as input")
-            except:
-                print("cannot calculate your input")
+                print("No negative number,letters, or zero as input")
             print(rec)
             stop = input("enter q to stop creating rectangles, else press enter: ")
     return lis
@@ -59,7 +54,7 @@ try:
             print("The rectangles are the same.")
         else:
             print("The rectangles are different.")
-except:
+except ValueError:
     print("Something went wrong, we could'nt compare your rectangles")
 
 
