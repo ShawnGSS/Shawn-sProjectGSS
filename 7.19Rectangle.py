@@ -8,7 +8,7 @@ class Rectangle:
         It has a perimeter of %s and an area of %s """% (self.length,self.width,AP(self.length,self.width)[0],AP(self.length,self.width)[1])
 
     def __eq__(self, other):
-        if self.length == other.length and self.width == other.width:
+        if self.length == other.length and self.width == other.width or self.length == other.width and self.width == other.length:
             return True
         return False
 
