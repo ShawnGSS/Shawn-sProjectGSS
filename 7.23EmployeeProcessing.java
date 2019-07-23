@@ -47,7 +47,6 @@ public class EmployeeProcessing {
         }
         outFS.println("Total company spending: "+ totalspending);
         outFS.flush();
-        findEmp(pupil,"Anderson");
 
     }
   /*  public static void findEmp(ArrayList<Employee> pupil, String lastname) {
