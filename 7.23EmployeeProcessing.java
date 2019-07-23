@@ -50,7 +50,7 @@ public class EmployeeProcessing {
         findEmp(pupil,"Anderson");
 
     }
-    public static void findEmp(ArrayList<Employee> pupil, String lastname) {
+  /*  public static void findEmp(ArrayList<Employee> pupil, String lastname) {
         int low = 0;
         int high = pupil.size() - 1;
         int mid;
@@ -59,13 +59,14 @@ public class EmployeeProcessing {
             if (lastname == pupil.get(mid).getLastName()) {
                 pupil.get(mid).printerMon();
             } else if (lastname.compareTo(pupil.get(mid).getLastName()) > 0) {
-                high = mid - 1;
+                
             } else {
-                low = mid + 1;
+                
             }
         }
         System.out.print("Employee not found. ");
     }
+    */
 
 }
 
